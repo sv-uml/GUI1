@@ -1,0 +1,316 @@
+/* Basic page styling */
+html, body {
+    background-color: #ffffff;
+    font-family: "Open Sans", "Helvetica Neue", Helvetica, Arial, sans-serif;
+    margin: 0;
+	padding: 0;
+	height: 100%;
+	width: 100%;
+}
+
+@font-face {
+    font-family: 'Open Sans';
+    font-style: normal;
+    font-weight: 400;
+    src: local('Open Sans Regular'), local('OpenSans-Regular'), url("../fonts/OpenSans-Regular.woff2") format('woff2');
+}
+
+@font-face {
+    font-family: 'Open Sans';
+    font-style: normal;
+    font-weight: 600;
+    src: local('Open Sans SemiBold'), local('OpenSans-SemiBold'), url("../fonts/OpenSans-SemiBold.woff2") format('woff2');
+}
+
+@font-face {
+    font-family: 'Open Sans';
+    font-style: normal;
+    font-weight: 300;
+    src: local('Open Sans Light'), local('OpenSans-Light'), url("../fonts/OpenSans-Light.woff2") format('woff2');
+}
+
+#app, div.root { height: 100%; }
+
+h1, h2, h3, h4 { font-weight: 500; }
+h1 { margin-bottom: 10px; }
+a, a:hover { text-decoration: none; }
+ul.close p { margin: 5px; }
+
+a.btn {
+    background-color: #5c5cb6;
+    border: 1px solid #4e4eb6;
+    border-radius: 3px;
+    color: #ffffff;
+    min-width: 200px;
+    padding: 10px 20px;
+}
+
+a.btn.small {
+    padding: 0 10px;
+}
+
+a.btn.top {
+    display: block;
+    margin-top: 40px;
+}
+
+a.btn:hover {
+    background-color: #4e4eb6;
+}
+
+/* Style navigation bar on top */
+nav.header {
+    -webkit-box-shadow: 0px 3px 5px 0px rgba(170, 170, 170, 0.3);
+    box-shadow: 0px 3px 5px 0px rgba(170, 170, 170, 0.3);
+    background: #ffffff;
+    border-bottom: 1px solid rgba(170, 170, 170, 0.3);
+    color: #292929;
+    display: table;
+    height: 50px;
+    padding: 0 30px;
+}
+
+nav.header > .header-logo {
+	color: #333333;
+    display: table-cell;
+    font-size: 18px;
+    line-height: 20px;
+    min-width: 154px;
+    text-decoration: none;
+    vertical-align: middle;
+}
+
+nav.header > .options-container {
+	display: table-cell;
+	width: 100%;
+	line-height: 50px;
+	text-align: right;
+}
+
+nav.header > .options-container > a.option {
+	color: inherit;
+	display: table-cell;
+	float: right;
+    padding: 0 10px;
+    text-decoration: none;
+	width: auto;
+}
+
+nav.header > .options-container > a.option:hover {
+	background-color: #f5f5f5;
+	text-decoration: none;
+}
+
+div.container {
+    padding-left: 30px;
+    padding-right: 30px;
+}
+
+div.container.gui-midterm1-container {
+    background-color: #f2f2f2;
+}
+
+/* GUI Programming I Assignment 3 related styles */
+.gui-assign3 {
+    padding: 10px 0;
+}
+
+.gui-assign3 a:nth-of-type(1),
+.gui-assign3 a:nth-of-type(2) {
+    margin-right: 10px;
+}
+
+.gui-assign3 h2 {
+    margin: 5px 0;
+}
+
+.gui-assign3 h3 {
+    font-size: 22px;
+}
+
+.gui-assign3 span.bold {
+    font-weight: bold;
+}
+
+.gui-assign3 a.active {
+    font-weight: bold;
+}
+
+.gui-assign3 a:nth-of-type(1).active {
+    color: red;
+}
+
+.gui-assign3 a:nth-of-type(2).active {
+    color: blue;
+}
+
+.gui-assign3 a:nth-of-type(3).active {
+    color: green;
+}
+
+.gui-assign3 .image-top {
+    background-size: 100%;
+    background-repeat: no-repeat;
+    height: 200px;
+    margin-top: 10px;
+    width: 100%;
+}
+
+.gui-assign3.one {
+    color: red;
+ }
+
+ .gui-assign3.two {
+    color: blue;
+ }
+
+ .gui-assign3.three {
+    color: green;
+}
+
+.gui-assign3.one .image-top {
+    background-image: url("https://images.pexels.com/photos/373893/pexels-photo-373893.jpeg?w=940&h=650&dpr=2&auto=compress&cs=tinysrgb");
+    border: 2px solid #ff0000;
+    opacity: 0.7;
+    transition: background-size 1s;
+}
+
+.gui-assign3.one .image-top:hover {
+    background: url("https://images.pexels.com/photos/373893/pexels-photo-373893.jpeg?w=940&h=650&dpr=2&auto=compress&cs=tinysrgb"), linear-gradient(to bottom right, red, yellow);
+    background-size: 50%;
+}
+
+.gui-assign3.two .image-top {
+    background-image: url("https://images.pexels.com/photos/305256/pexels-photo-305256.jpeg?w=940&h=650&dpr=2&auto=compress&cs=tinysrgb");
+    border: 2px solid #0000ff;
+    opacity: 0.8;
+}
+
+.gui-assign3.two .image-top:hover {
+    border: 10px solid #0000ff;
+    animation:spin 1s ease infinite;
+}
+
+.gui-assign3.three .image-top {
+    background-image: url("https://images.pexels.com/photos/302588/pexels-photo-302588.jpeg?w=940&h=650&dpr=2&auto=compress&cs=tinysrgb");
+    border: 2px solid #008000;
+    transition: height 2s;
+}
+
+.gui-assign3.three .image-top:hover {
+    background: linear-gradient(180deg, rgba(0,255,127,0.8) 70%, rgba(0,0,0,0) 50%, rgba(0,0,0,0) 0), url("https://images.pexels.com/photos/302588/pexels-photo-302588.jpeg?w=940&h=650&dpr=2&auto=compress&cs=tinysrgb");
+    height: 400px;
+}
+
+div.gui-midterm1 h1,
+div.gui-assign4 h1,
+div.gui-assign5 h1 {
+    font-size: 38px;
+    font-weight: 600;
+    margin: 0;
+    padding: 15px 0;
+    text-align: center;
+}
+
+div.gui-midterm1 h1:first-of-type,
+div.gui-assign4 h1:first-of-type,
+div.gui-assign5 h1:first-of-type {
+    padding-top: 40px;
+}
+
+div.gui-midterm1 .content,
+div.gui-assign4 .content,
+div.gui-assign5 .content {
+    font-size: 21px;
+    font-weight: 300;
+    margin: 0 auto;
+    margin-top: 20px;
+    text-align: center;
+    width: 800px;
+}
+
+div.gui-midterm1 .content a.btn,
+div.gui-assign4 .content a.btn,
+div.gui-assign5 .content a.btn {
+    margin-top: 40px;
+}
+
+div.gui-midterm1 .content .lh,
+div.gui-assign4 .content .lh,
+div.gui-assign5 .content .lh {
+    line-height: 40px;
+}
+
+div.gui-midterm1 .content .input-wrap,
+div.gui-assign4 .content .data-input,
+div.gui-assign5 .content .data-input { text-align: left; }
+
+div.gui-midterm1 .content .input-wrap .deal-input,
+div.gui-assign4 .content .data-input .deal-input,
+div.gui-assign5 .content .data-input .deal-input {
+    background-color: #e2e0e0;
+    border: 1px solid #999;
+    border-radius: 3px;
+    display: table;
+    margin: 10px 0;
+    padding: 10px 5px;
+    width: 100%;
+}
+
+div.gui-midterm1 .content .input-wrap .deal-input .form-element,
+div.gui-assign4 .content .data-input .deal-input .form-element,
+div.gui-assign5 .content .data-input .deal-input .form-element {
+    display: table;
+    margin-bottom: 10px;
+    width: 500px;
+}
+
+div.gui-midterm1 .content .input-wrap .deal-input .form-element span,
+div.gui-assign4 .content .data-input .deal-input .form-element span,
+div.gui-assign5 .content .data-input .deal-input .form-element span {
+    display: table-cell;
+    min-width: 175px;
+    padding-right: 20px;
+    text-align: right;
+}
+
+div.gui-midterm1 .content .input-wrap .deal-input .form-element input,
+div.gui-assign4 .content .data-input .deal-input .form-element input,
+div.gui-assign5 .content .data-input .deal-input .form-element input {
+    display: table-cell;
+    padding: 10px 5px;
+    width: 300px;
+}
+
+div.gui-assign4 .content table#assign4_table,
+div.gui-assign5 .content table#assign5_table {
+    width: 100%;
+}
+
+div.gui-assign4 .content table#assign4_table thead tr th,
+div.gui-assign5 .content table#assign5_table thead tr th {
+    border-bottom: 1px solid #eee;
+}
+
+div.gui-assign4 .content table#assign4_table tbody tr td,
+div.gui-assign5 .content table#assign5_table tbody tr td {
+    border-right: 1px solid #eee;
+}
+
+div.gui-assign4 .content table#assign4_table tbody tr td:last-of-type,
+div.gui-assign5 .content table#assign5_table tbody tr td:last-of-type {
+    border-right: 0;
+}
+
+div.gui-midterm1 .content ul { text-align: center; }
+div.gui-midterm1 .content ul li { position: relative; display: inline-block; margin-left: 10px; text-align: center; }
+div.gui-midterm1 .content ul li:before { content: '\00a0\2022\00a0\00a0'; color: #666666; font-size: 19px; }
+
+span#validation {
+    font-size: 16px;
+    min-width: 261px;
+    padding-left: 10px;
+    text-align: left;
+}
+
+@keyframes spin { 100% { -webkit-transform: rotate(360deg); transform: rotate(360deg); } }
