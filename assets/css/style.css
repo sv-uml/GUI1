@@ -8,6 +8,10 @@ html, body {
 	width: 100%;
 }
 
+.ui-widget {
+    font-family: "Open Sans", "Helvetica Neue", Helvetica, Arial, sans-serif;
+}
+
 @font-face {
     font-family: 'Open Sans';
     font-style: normal;
@@ -41,6 +45,7 @@ a.btn {
     border: 1px solid #4e4eb6;
     border-radius: 3px;
     color: #ffffff;
+    cursor: pointer;
     min-width: 200px;
     padding: 10px 20px;
 }
@@ -204,7 +209,8 @@ div.container.gui-midterm1-container {
 
 div.gui-midterm1 h1,
 div.gui-assign4 h1,
-div.gui-assign5 h1 {
+div.gui-assign5 h1,
+div.gui-assign6 h1 {
     font-size: 38px;
     font-weight: 600;
     margin: 0;
@@ -214,13 +220,15 @@ div.gui-assign5 h1 {
 
 div.gui-midterm1 h1:first-of-type,
 div.gui-assign4 h1:first-of-type,
-div.gui-assign5 h1:first-of-type {
+div.gui-assign5 h1:first-of-type,
+div.gui-assign6 h1:first-of-type {
     padding-top: 40px;
 }
 
 div.gui-midterm1 .content,
 div.gui-assign4 .content,
-div.gui-assign5 .content {
+div.gui-assign5 .content,
+div.gui-assign6 .content {
     font-size: 21px;
     font-weight: 300;
     margin: 0 auto;
@@ -231,23 +239,27 @@ div.gui-assign5 .content {
 
 div.gui-midterm1 .content a.btn,
 div.gui-assign4 .content a.btn,
-div.gui-assign5 .content a.btn {
+div.gui-assign5 .content a.btn,
+div.gui-assign6 .content a.btn {
     margin-top: 40px;
 }
 
 div.gui-midterm1 .content .lh,
 div.gui-assign4 .content .lh,
-div.gui-assign5 .content .lh {
+div.gui-assign5 .content .lh,
+div.gui-assign6 .content .lh {
     line-height: 40px;
 }
 
 div.gui-midterm1 .content .input-wrap,
 div.gui-assign4 .content .data-input,
-div.gui-assign5 .content .data-input { text-align: left; }
+div.gui-assign5 .content .data-input,
+div.gui-assign6 .content .data-input { text-align: left; }
 
 div.gui-midterm1 .content .input-wrap .deal-input,
 div.gui-assign4 .content .data-input .deal-input,
-div.gui-assign5 .content .data-input .deal-input {
+div.gui-assign5 .content .data-input .deal-input,
+div.gui-assign6 .content .data-input .deal-input {
     background-color: #e2e0e0;
     border: 1px solid #999;
     border-radius: 3px;
@@ -259,15 +271,17 @@ div.gui-assign5 .content .data-input .deal-input {
 
 div.gui-midterm1 .content .input-wrap .deal-input .form-element,
 div.gui-assign4 .content .data-input .deal-input .form-element,
-div.gui-assign5 .content .data-input .deal-input .form-element {
+div.gui-assign5 .content .data-input .deal-input .form-element,
+div.gui-assign6 .content .data-input .deal-input .form-element {
     display: table;
     margin-bottom: 10px;
     width: 500px;
 }
 
-div.gui-midterm1 .content .input-wrap .deal-input .form-element span,
-div.gui-assign4 .content .data-input .deal-input .form-element span,
-div.gui-assign5 .content .data-input .deal-input .form-element span {
+div.gui-midterm1 .content .input-wrap .deal-input .form-element span.title,
+div.gui-assign4 .content .data-input .deal-input .form-element span.title,
+div.gui-assign5 .content .data-input .deal-input .form-element span.title,
+div.gui-assign6 .content .data-input .deal-input .form-element span.title {
     display: table-cell;
     min-width: 175px;
     padding-right: 20px;
@@ -276,29 +290,109 @@ div.gui-assign5 .content .data-input .deal-input .form-element span {
 
 div.gui-midterm1 .content .input-wrap .deal-input .form-element input,
 div.gui-assign4 .content .data-input .deal-input .form-element input,
-div.gui-assign5 .content .data-input .deal-input .form-element input {
+div.gui-assign5 .content .data-input .deal-input .form-element input,
+div.gui-assign6 .content .data-input .deal-input .form-element input {
     display: table-cell;
     padding: 10px 5px;
     width: 300px;
 }
 
+div.gui-assign6 .content .data-input .deal-input .form-element input {
+    margin-right: 30px;
+    width: 50px;
+}
+
+div.gui-assign6 .content .data-input .deal-input .form-element .ui-slider {
+    display: table-cell;
+    height: 4px;
+    min-width: 220px;
+}
+
+div.gui-assign6 .content .data-input .deal-input .form-element .ui-slider span {
+    background: #4e4eb6;
+    border: 1px solid #0a1ab6;
+    height: 100%;
+    outline: none;
+    top: -1px;
+}
+
+div.gui-assign6 .content .data-input .deal-input .form-element .ui-slider .ui-slider-range-min {
+    background: #b1c0ff;
+}
+
+div.gui-assign6 #tabs {
+    border-radius: 3px;
+    padding: 0;
+}
+
+div.gui-assign6 #tabs > ul {
+    background: #eee;
+    border: 0;
+    border-radius: 0;
+    border-top-left-radius: 3px;
+    border-top-right-radius: 3px;
+    display: flex;
+    flex-flow: row;
+}
+
+div.gui-assign6 #tabs > ul > li {
+    font-size: 18px;
+    margin: 0;
+    outline: none;
+}
+
+div.gui-assign6 #tabs > ul > li.ui-state-default {
+    background: #ddd;
+}
+
+div.gui-assign6 #tabs > ul > li.ui-state-active {
+    background: #fff;
+}
+
+div.gui-assign6 #tabs > ul > li > a.ui-tabs-anchor {
+    cursor: pointer;
+    padding: 5px 10px;
+    outline: none;
+}
+
+div.gui-assign6 #tabs > ul > li > a.tab_close {
+    cursor: pointer;
+    display: inline-block;
+    padding-right: 5px;
+    margin-top: 4px;
+    vertical-align: top;
+}
+
 div.gui-assign4 .content table#assign4_table,
-div.gui-assign5 .content table#assign5_table {
+div.gui-assign5 .content table#assign5_table,
+div.gui-assign6 .content #tabs table {
     width: 100%;
 }
 
+div.gui-assign6 .content #tabs table {
+    display: table;
+    font-size: 18px;
+    font-weight: 300;
+    margin: 0 auto;
+    padding: 10px .2em;
+    text-align: center;
+}
+
 div.gui-assign4 .content table#assign4_table thead tr th,
-div.gui-assign5 .content table#assign5_table thead tr th {
+div.gui-assign5 .content table#assign5_table thead tr th,
+div.gui-assign6 .content #tabs table thead tr th {
     border-bottom: 1px solid #eee;
 }
 
 div.gui-assign4 .content table#assign4_table tbody tr td,
-div.gui-assign5 .content table#assign5_table tbody tr td {
+div.gui-assign5 .content table#assign5_table tbody tr td,
+div.gui-assign6 .content #tabs table tbody tr td {
     border-right: 1px solid #eee;
 }
 
 div.gui-assign4 .content table#assign4_table tbody tr td:last-of-type,
-div.gui-assign5 .content table#assign5_table tbody tr td:last-of-type {
+div.gui-assign5 .content table#assign5_table tbody tr td:last-of-type,
+div.gui-assign6 .content #tabs table tbody tr td:last-of-type {
     border-right: 0;
 }
 

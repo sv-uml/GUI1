@@ -45,6 +45,14 @@ function setState(changes) {
             React.createElement("a", { href: "http://jigsaw.w3.org/css-validator/check/referer" }, 
             React.createElement("img", { width: 88, height: 31, src: "http://jigsaw.w3.org/css-validator/images/vcss-blue", alt: "Valid CSS!" }))));
         }; break;
+        // Route for Assignment 6
+        case "#/courses/gui1/assign6":
+        case "/461f2017/hw6": {
+            component = React.createElement('div', { className: "container" }, React.createElement(GUI1Assign6, {}),
+            React.createElement("p", {}, 
+            React.createElement("a", { href: "http://jigsaw.w3.org/css-validator/check/referer" }, 
+            React.createElement("img", { width: 88, height: 31, src: "http://jigsaw.w3.org/css-validator/images/vcss-blue", alt: "Valid CSS!" }))));
+        }; break;
         // Route for Midterm 1 home
         case "#/courses/gui1/midterm1": {
             component = React.createElement('div', { className: "container gui-midterm1-container" }, React.createElement(GUI1Midterm1, {}));
@@ -90,10 +98,36 @@ $(document).ready(function() {
 });
 
 $(document).ready(function() {
-    var i = 1;
+    var i = 1, k = 1;
     $(".data-input .btn").click(function(e) {
         i++;
-        $(".data-input").append("<div class=\"deal-input\"><div class=\"form-element\"><span>Miles per Gallon</span><input type=\"number\" step=\"0.01\" min=\"0.01\" name=\"miles_gallon[]\" placeholder=\"Miles per Gallon (i.e. 20.41)\"></div><div class=\"form-element\"><span>Price</span><input type=\"number\" step=\"0.01\" min=\"0.01\" name=\"price[]\" placeholder=\"Price (i.e. 15.32)\"></div></div>");
+        $(".gui-assign5 .data-input").append("<div class=\"deal-input\"><div class=\"form-element\"><span>Miles per Gallon</span><input type=\"number\" step=\"0.01\" min=\"0.01\" name=\"miles_gallon[]\" placeholder=\"Miles per Gallon (i.e. 20.41)\"></div><div class=\"form-element\"><span>Price</span><input type=\"number\" step=\"0.01\" min=\"0.01\" name=\"price[]\" placeholder=\"Price (i.e. 15.32)\"></div></div>");
+    });
+
+    $(".gui-assign6 .data-input .btn").click(function(e) {
+        k++;
+        $(".data-input").append("<form class=\"deal-input\"><div class=\"form-element\"><span class=\"title\">Miles per Gallon</span><input type=\"number\" name=\"miles_gallon[]\" placeholder=\"Miles per Gallon (i.e. 20.41)\" value=\"50\"/><div class=\"miles-slider-range\"></div><span id=\"validation\"></span></div><div class=\"form-element\"><span class=\"title\">Price</span><input type=\"number\" step=\"0.01\" min=\"0.01\" name=\"price[]\" placeholder=\"Price (i.e. 15.32)\" value=\"50\"/><div class=\"price-slider-range\"></div><span id=\"validation\"></span></div></form>");
+        $(".deal-input:last-of-type .miles-slider-range").slider({
+            range: "min",
+            step: 0.01,
+            min: 0,
+            max: 100,
+            value: 50,
+            slide: function(event, ui) {
+                $(".deal-input:last-of-type .miles-slider-range").prev().val(ui.value);
+            }
+        });
+    
+        $(".deal-input:last-of-type .price-slider-range").slider({
+            range: "min",
+            step: 0.01,
+            min: 0,
+            max: 100,
+            value: 50,
+            slide: function(event, ui) {
+                $(".deal-input:last-of-type .price-slider-range").prev().val(ui.value);
+            }
+        });
     });
 });
 
@@ -160,13 +194,12 @@ $(function() {
 })
 
 $("#assign5_deal_submit").click(function() {
-
-    var mpg = $('input[name="miles_gallon[]"]');
-    var price = $('input[name="price[]"]');
+    var mpg = $("input[name='miles_gallon[]']");
+    var price = $("input[name='price[]']");
     
     // Validate all MPG inputs
     for (var i = 0; i < mpg.length; i++) {
-        if (mpg[i].value.length == 0 || isNaN(+mpg[i].value)) {
+        if (mpg[i].value < 0 || mpg[i].value.length == 0 || isNaN(+mpg[i].value)) {
             $(mpg[i]).focus();
             alert("Invalid mpg amount for Deal " + (i + 1) + ". Please enter a decimal value (i.e. 20.41)");
             return;
@@ -175,7 +208,7 @@ $("#assign5_deal_submit").click(function() {
 
     // Validate all price inputs
     for (var i = 0; i < price.length; i++) {
-        if (price[i].value.length == 0 || isNaN(+price[i].value)) {
+        if (price[i].value < 0 || price[i].value.length == 0 || isNaN(+price[i].value)) {
             $(price[i]).focus();
             alert("Invalid price amount for Deal " + (i + 1) + ". Please enter a decimal value (i.e. 15.32)");
             return;
@@ -204,14 +237,14 @@ $("#assign5_deal_submit").click(function() {
     window.scrollTo(0, 0);
 });
 
-$('input[name="miles_gallon[]"]').change(function() { validateInput(this); });
-$('input[name="price[]"]').change(function() { validateInput(this); });
+$(".gui-assign5 input[name='miles_gallon[]']").change(function() { validateInput(this); });
+$(".gui-assign5 input[name='price[]']").change(function() { validateInput(this); });
 
 function validateInput (element) {
-    $(element).next().text("");
+    $(element).next("span#validation").text("");
     jQuery.validator.setDefaults({
         errorPlacement: function(error, element) {
-            $(element).next().text(error.text());
+            $(element).next("span#validation").text(error.text());
         }
     });
     $("form").validate({
@@ -222,3 +255,128 @@ function validateInput (element) {
     });
     $(element).valid();
 }
+
+$(function() {
+    $(".miles-slider-range").slider({
+        range: "min",
+        step: 0.01,
+        min: 0,
+        max: 100,
+        value: 50,
+        slide: function(event, ui) {
+            $(".miles-slider-range").prev().val(ui.value);
+        }
+    });
+
+    $(".price-slider-range").slider({
+        range: "min",
+        step: 0.01,
+        min: 0,
+        max: 100,
+        value: 50,
+        slide: function(event, ui) {
+            $(".price-slider-range").prev().val(ui.value);
+        }
+    });
+
+    $(".gui-assign6 input[name='miles_gallon[]']").on("change", function() {
+        if ($(this).val() > -1 && $(this).val() < 1001) {
+            var val = $(this).val();
+            $(this).next(".miles-slider-range").slider("value", val);
+        }
+        validateInput(this);
+    });
+
+    $(".gui-assign6 input[name='price[]']").on("change", function() {
+        if ($(this).val() > -1 && $(this).val() < 1001) {
+            var val = $(this).val();
+            $(this).next(".price-slider-range").slider("value", val); 
+        }
+        validateInput(this);
+    });
+
+    var tabs = $(".gui-assign6 #tabs").tabs();
+    var handle = tabs.find("ul");
+    var tabNum = 0;
+
+    $("#assign6_deal_submit").click(function() {
+        var mpg = $("input[name='miles_gallon[]']");
+        var price = $("input[name='price[]']");
+        var mpg_num = [];
+        var price_num = [];
+        var tab_text = "";
+        
+        // Validate all MPG inputs
+        for (var i = 0; i < mpg.length; i++) {
+            if (mpg[i].value < 0 || mpg[i].value.length == 0 || isNaN(+mpg[i].value)) {
+                $(mpg[i]).focus();
+                alert("Invalid mpg amount for Deal " + (i + 1) + ". Please enter a decimal value (i.e. 20.41)");
+                return;
+            }
+            mpg_num[i] = mpg[i].value;
+        }
+    
+        // Validate all price inputs
+        for (var i = 0; i < price.length; i++) {
+            if (price[i].value < 0 || price[i].value.length == 0 || isNaN(+price[i].value)) {
+                $(price[i]).focus();
+                alert("Invalid price amount for Deal " + (i + 1) + ". Please enter a decimal value (i.e. 15.32)");
+                return;
+            }
+            price_num[i] = price[i].value;
+        }
+
+        var table = document.createElement("table");
+        $(table).append("<thead><tr></tr></thead>")
+        $(table).append("<tbody><tr></tr></thead>")
+
+        // Create "Price" header for table
+        $(table).find("thead").find("tr").append("<th>Price/Fuel Consumption</th>")
+        for (var i = 0; i < price.length; i++) {
+            $(table).find("thead").find("tr").append("<th>Price " + (i + 1) + "</th>");
+        }
+
+        // Populate the table with price and mpg data
+        for (var i = 0; i < mpg.length; i++) {
+            var row = $("<tr><td>Mpg" + (i + 1) + "</td></tr>").appendTo(table);
+            for (var j = 0; j < price.length; j++) {
+                $('<td></td>').text("$" + price[j].value + "/mi").appendTo(row); 
+            }
+        }
+
+        for (var i = 0; i < mpg_num.length; i++) {
+            tab_text = "(" + mpg_num[i] + ", " + price_num[i] + "), ";
+        }
+        tab_text = tab_text.substring(0, tab_text.length - 2);
+
+        var index = "tab_id_" + tabNum;
+        table.id = index;
+
+        //Add the tab handle
+        var li = document.createElement('li');
+        li.id = "handle-" + tabNum;
+        $(li).append("<a href=\"#tab_id_" + tabNum + "\">" + tab_text + "</a>");
+        
+        var a = document.createElement('a');
+        a.className = "tab_close";
+        a.appendChild(document.createTextNode('x'));
+        li.appendChild(a);
+        handle.append(li);
+
+        tabs.append(table);
+        tabNum++;
+        tabs.tabs("refresh");
+        tabs.tabs("option", "active", handle.find('li').length - 1);
+    
+        // Scroll to top of screen to show table
+        window.scrollTo(0, 0);
+    });
+
+    tabs.on("click", ".tab_close", function() {
+        var id = $(this).prev().attr("href").substring(1);
+        $(this).parents("#tabs").find("table#" + id).remove();
+        $(this).parent().remove();
+        tabs.tabs("refresh");
+    })
+
+});

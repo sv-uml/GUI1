@@ -31,7 +31,7 @@ var RecentView = React.createClass({
                 React.createElement('h1', {}, "Recent"),
                 React.createElement("ul", {}, 
                     React.createElement("li", {}, 
-                        React.createElement("a", { href: "#/courses/gui1/assign5" }, "GUI Programming I Assignment 5")))));
+                        React.createElement("a", { href: "#/courses/gui1/assign6" }, "GUI Programming I Assignment 6")))));
     }
 });
 
@@ -240,28 +240,28 @@ var GUI1Midterm1Entry = React.createClass({
                             React.createElement("a", {className: "btn small"}, "+ New Deal"),
                             React.createElement("div", {className: "deal-input" },
                                 React.createElement("div", {className: "form-element"}, 
-                                    React.createElement("span", {}, "Name"),
+                                    React.createElement("span", {className: "title"}, "Name"),
                                     React.createElement("input", {type: "text", name: "deal_name[]", placeholder: "Name of Deal (i.e. Ford's deal)"})),
                                 React.createElement("div", {className: "form-element"}, 
-                                    React.createElement("span", {}, "MSRP"),
+                                    React.createElement("span", {className: "title"}, "MSRP"),
                                     React.createElement("input", {type: "number", name: "msrp[]", min: "0.01", step:"0.01", placeholder: "MSRP Price (Enter only the number i.e. 100000)"})),
                                 React.createElement("div", {className: "form-element"}, 
-                                    React.createElement("span", {}, "Discount"),
+                                    React.createElement("span", {className: "title"}, "Discount"),
                                     React.createElement("input", {type: "number", name: "discount[]", min: "0.01", step: "0.01", placeholder: "Discount Price (Enter only the number i.e. 100000)"})),
                                 React.createElement("div", {className: "form-element"}, 
-                                    React.createElement("span", {}, "Rebate"),
+                                    React.createElement("span", {className: "title"}, "Rebate"),
                                     React.createElement("input", {type: "number", name: "rebate[]", min: "0.01", step: "0.01", placeholder: "Rebate Price (Enter only the number i.e. 100000)"})),
                                 React.createElement("div", {className: "form-element"}, 
-                                    React.createElement("span", {}, "Down Payment"),
+                                    React.createElement("span", {className: "title"}, "Down Payment"),
                                     React.createElement("input", {type: "number", name: "down[]", min: "0.01", step: "0.01", placeholder: "Down Payment (Enter only the number i.e. 100000)"})),
                                 React.createElement("div", {className: "form-element"}, 
-                                    React.createElement("span", {}, "Interest Rate"),
+                                    React.createElement("span", {className: "title"}, "Interest Rate"),
                                     React.createElement("input", {type: "number", name: "interest[]", min: "0.01", step: "0.01", placeholder: "Interest Rate (Enter only the percentage i.e. 5.00)"})),
                                 React.createElement("div", {className: "form-element"}, 
-                                    React.createElement("span", {}, "Miles Driven"),
+                                    React.createElement("span", {className: "title"}, "Miles Driven"),
                                     React.createElement("input", {type: "number", name: "miles_driven[]", min: "0.01", step: "0.01", placeholder: "Number of miles driven (i.e. 100)"})),
                                 React.createElement("div", {className: "form-element"}, 
-                                    React.createElement("span", {}, "Additional Miles"),
+                                    React.createElement("span", {className: "title"}, "Additional Miles"),
                                     React.createElement("input", {type: "number", name: "additional_miles[]", min: "0.01", step: "0.01", placeholder: "Cost per additional mile (i.e. 5.00)"})))),
                         React.createElement("a", { id: "deal-submit", className: "btn top", href: "#/courses/gui1/midterm1/start" }, "Finish"),
                         React.createElement("br", {}))) );
@@ -291,10 +291,10 @@ var GUI1Assign4 = React.createClass({
                         React.createElement("a", {className: "btn small"}, "+ New Entry"),
                         React.createElement("div", {className: "deal-input" },
                             React.createElement("div", {className: "form-element"}, 
-                                React.createElement("span", {}, "Miles per Gallon"),
+                                React.createElement("span", {className: "title"}, "Miles per Gallon"),
                                 React.createElement("input", {type: "number", name: "miles_gallon[]", placeholder: "Miles per Gallon (i.e. 20.41)"})),
                             React.createElement("div", {className: "form-element"}, 
-                                React.createElement("span", {}, "Price"),
+                                React.createElement("span", {className: "title"}, "Price"),
                                 React.createElement("input", {type: "number", name: "price[]", min: "0.01", step:"0.01", placeholder: "Price (i.e. 15.32)"})))),
                         React.createElement("a", { id: "assign4_deal_submit", className: "btn top" }, "Submit"))) );
     }
@@ -323,13 +323,43 @@ var GUI1Assign5 = React.createClass({
                             React.createElement("a", {className: "btn small"}, "+ New Entry"),
                             React.createElement("form", {className: "deal-input" },
                                 React.createElement("div", {className: "form-element"}, 
-                                    React.createElement("span", {}, "Miles per Gallon"),
+                                    React.createElement("span", {className: "title"}, "Miles per Gallon"),
                                     React.createElement("input", {type: "number", name: "miles_gallon[]", placeholder: "Miles per Gallon (i.e. 20.41)"}),
                                     React.createElement("span", { id: "validation" }, "")),
                                 React.createElement("div", {className: "form-element"}, 
-                                    React.createElement("span", {}, "Price"),
+                                    React.createElement("span", {className: "title"}, "Price"),
                                     React.createElement("input", {type: "number", name: "price[]", min: "0.01", step:"0.01", placeholder: "Price (i.e. 15.32)"}),
                                     React.createElement("span", { id: "validation" }, "")))),
                         React.createElement("a", { id: "assign5_deal_submit", className: "btn top" }, "Submit"))) );
+    }
+});
+
+// Create React view for GUI Programming Assignment 6
+var GUI1Assign6 = React.createClass({
+    propTypes: { },
+	render: function() {
+        return ( React.createElement("div", { className: "gui-assign6" },
+                    React.createElement("h1", {}, "Miles/Gallon vs. Price"),
+                    React.createElement("div", { className: "content" },
+                        React.createElement("span", {}, "Visualize the relation between miles per gallon and price by entering the data below:"),
+                        React.createElement("br", {}),
+                        React.createElement("br", {}),
+                        React.createElement("div", { id: "tabs" },
+                            React.createElement("ul", {})),
+                        React.createElement("br", {}),
+                        React.createElement("div", { className: "data-input"}, 
+                            React.createElement("a", {className: "btn small"}, "+ New Entry"),
+                            React.createElement("form", {className: "deal-input" },
+                                React.createElement("div", {className: "form-element"}, 
+                                    React.createElement("span", {className: "title"}, "Miles per Gallon"),
+                                    React.createElement("input", {type: "number", name: "miles_gallon[]", placeholder: "Miles per Gallon (i.e. 20.41)", defaultValue: 50}),
+                                    React.createElement("div", { className: "miles-slider-range" }),
+                                    React.createElement("span", { id: "validation" }, "")),
+                                React.createElement("div", {className: "form-element"}, 
+                                    React.createElement("span", {className: "title"}, "Price"),
+                                    React.createElement("input", {type: "number", name: "price[]", min: "0.01", step:"0.01", placeholder: "Price (i.e. 15.32)", defaultValue: 50.00}),
+                                    React.createElement("div", { className: "price-slider-range" }),
+                                    React.createElement("span", { id: "validation" }, "")))),
+                        React.createElement("a", { id: "assign6_deal_submit", className: "btn top" }, "Submit"))) );
     }
 });
