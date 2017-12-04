@@ -40,7 +40,7 @@ h1 { margin-bottom: 10px; }
 a, a:hover { text-decoration: none; }
 ul.close p { margin: 5px; }
 
-a.btn {
+.btn {
     background-color: #5c5cb6;
     border: 1px solid #4e4eb6;
     border-radius: 3px;
@@ -50,17 +50,52 @@ a.btn {
     padding: 10px 20px;
 }
 
-a.btn.small {
+.btn.small {
     padding: 0 10px;
 }
 
-a.btn.top {
+.btn.top {
     display: block;
     margin-top: 40px;
 }
 
-a.btn:hover {
+.btn:hover {
     background-color: #4e4eb6;
+}
+
+.gui-assign6 .btn {
+    font-size: 18px;
+}
+
+.gui-assign6 .btn:not(:first-child) {
+    margin-left: 10px;
+}
+
+.gui-assign6 form#remove_multiple {
+    display: none;
+    margin-top: 10px;
+}
+
+.gui-assign6 form#remove_multiple.show {
+    display: block;
+}
+
+.gui-assign6 form#remove_multiple select {
+    display: none;
+}
+
+.gui-assign6 form#remove_multiple.show select {
+    display: block;
+}
+
+.gui-assign6 form#remove_multiple .btn {
+    display: none;
+    font-weight: 300;
+    margin: 0;
+}
+
+.gui-assign6 form#remove_multiple.show .btn {
+    display: inline;
 }
 
 /* Style navigation bar on top */
@@ -237,10 +272,10 @@ div.gui-assign6 .content {
     width: 800px;
 }
 
-div.gui-midterm1 .content a.btn,
-div.gui-assign4 .content a.btn,
-div.gui-assign5 .content a.btn,
-div.gui-assign6 .content a.btn {
+div.gui-midterm1 .content .btn,
+div.gui-assign4 .content .btn,
+div.gui-assign5 .content .btn,
+div.gui-assign6 .content .btn {
     margin-top: 40px;
 }
 

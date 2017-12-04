@@ -104,7 +104,7 @@ $(document).ready(function() {
         $(".gui-assign5 .data-input").append("<div class=\"deal-input\"><div class=\"form-element\"><span>Miles per Gallon</span><input type=\"number\" step=\"0.01\" min=\"0.01\" name=\"miles_gallon[]\" placeholder=\"Miles per Gallon (i.e. 20.41)\"></div><div class=\"form-element\"><span>Price</span><input type=\"number\" step=\"0.01\" min=\"0.01\" name=\"price[]\" placeholder=\"Price (i.e. 15.32)\"></div></div>");
     });
 
-    $(".gui-assign6 .data-input .btn").click(function(e) {
+    $(".gui-assign6 .data-input .btn.entry").click(function(e) {
         k++;
         $(".data-input").append("<form class=\"deal-input\"><div class=\"form-element\"><span class=\"title\">Miles per Gallon</span><input type=\"number\" name=\"miles_gallon[]\" placeholder=\"Miles per Gallon (i.e. 20.41)\" value=\"50\"/><div class=\"miles-slider-range\"></div><span id=\"validation\"></span></div><div class=\"form-element\"><span class=\"title\">Price</span><input type=\"number\" step=\"0.01\" min=\"0.01\" name=\"price[]\" placeholder=\"Price (i.e. 15.32)\" value=\"50\"/><div class=\"price-slider-range\"></div><span id=\"validation\"></span></div></form>");
         $(".deal-input:last-of-type .miles-slider-range").slider({
@@ -364,9 +364,12 @@ $(function() {
         handle.append(li);
 
         tabs.append(table);
-        tabNum++;
         tabs.tabs("refresh");
         tabs.tabs("option", "active", handle.find('li').length - 1);
+
+        $("#remove_multiple select").append("<option value=\"" + tabNum + "\">" + tab_text + "</option>");
+
+        tabNum++;
     
         // Scroll to top of screen to show table
         window.scrollTo(0, 0);
@@ -377,6 +380,60 @@ $(function() {
         $(this).parents("#tabs").find("table#" + id).remove();
         $(this).parent().remove();
         tabs.tabs("refresh");
-    })
+        renderAvailableTabs()
+        if (tabNum < 1) {
+            $("form#remove_multiple").hide();
+            $(".remove-selected-tabs").hide();
+        } else {
+            $("form#remove_multiple").show();
+            $(".remove-selected-tabs").show();
+        }
+    });
 
+    // Remove all tabs and their content
+    $(".remove-all-tabs").click(function() {
+        handle.empty();
+        tabs.children("table").remove();
+        $("#remove_multiple ul").empty();
+        tabNum = 0;
+        renderAvailableTabs();
+        $("form#remove_multiple").hide();
+        $(".remove-selected-tabs").hide();
+    });
+
+    $(".remove-individual-tabs").click(function() {
+        $(".gui-assign6 form#remove_multiple").toggleClass("show");
+        if ($(".gui-assign6 form#remove_multiple").hasClass("show")) {
+            $(this).text("Hide individual tabs to remove")
+        } else {
+            $(this).text("Show individual tabs to remove")
+        }
+    });
+
+    $("form#remove_multiple").submit(function(e) {
+        e.preventDefault();
+        $("#remove_multiple select").find(":checked").each(function() {
+            var item = this;
+            var id = $(this).attr("value");
+            handle.find("li").each(function() {
+                if ($(this).attr("id").substring(7) === id) {
+                    $(this).remove();
+                    $(tabs).find("table#tab_id_" + id).remove();
+                    tabNum--;
+                    tabs.tabs("refresh");
+                    renderAvailableTabs();
+                    $(this).remove();
+                }
+            })
+        });
+    });
+
+    function renderAvailableTabs() {
+        $("#remove_multiple select").empty();
+        $(tabs).find("li").find("a.ui-tabs-anchor").each(function() {
+            var id = $(this).attr("href").substring(7);
+            var text = $(this).text();
+            $("#remove_multiple select").append("<option value=\"" + id + "\">" + text + "</option>");
+        })
+    }
 });
