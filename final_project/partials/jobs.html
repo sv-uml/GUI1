@@ -1,0 +1,21 @@
+<div class="container">
+    <div class="listing-container">
+        <h2>Current Openings</h2>
+        <div class="job-item" ng-repeat="jobItem in jobs | orderBy: '-datetime'" ui-sref="job({id: jobItem.id})">
+            <div class="job-content">
+                <div class="job-header">
+                    <div class="job-header-info">
+                        <div class="job-title">{{jobItem.title}}</div>
+                        <div class="job-location">{{jobItem.location}}</div>
+                    </div>
+                    <div class="job-header-action">
+                        <span>Added</span>
+                        <span class="job-time" am-time-ago="{{jobItem.datetime}} | amFromUnix"></span>
+                        <span class="job-apply"><a class="button alt small" ui-sref="apply({id: jobItem.id})">Apply</a></span>
+                    </div>
+                </div>
+                <div class="job-description">{{jobItem.shortdescription}}</div>
+            </div>
+        </div>
+    </div>
+</div>

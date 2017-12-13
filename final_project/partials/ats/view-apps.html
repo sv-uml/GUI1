@@ -1,0 +1,54 @@
+<div class="container ats view-apps">
+    <span class="page-back" ui-sref="ats"><i class="fa fa-arrow-left"></i> Back to Dashboard</span>
+    <h3 class="light">View applications for a job</h3>
+    <select ng-model="jobList" ng-change="viewAppsForJob()"><option value="">Choose a job</option><option ng-repeat="job in jobs" value="{{job.id}}">{{job.title}}</option></select>
+    <div ng-class="{ active: !emptySelect }" class="view-apps-application" ng-repeat="app in applicant">
+        <h2 class="light">About {{app.name}}</h2>
+        <div class="form-element">
+            <span class="input-label"><strong>Name</strong></span>
+            <div class="input-element">{{app.name}}</div>
+        </div>
+        <div class="form-element">
+            <span class="input-label"><strong>Email</strong></span>
+            <div class="input-element">{{app.email}}</div>
+        </div>
+        <div class="form-element">
+            <span class="input-label"><strong>Address</strong></span>
+            <div class="input-element">{{app.address}}</div>
+        </div>
+        <div class="form-element">
+            <span class="input-label"><strong>Birth Date</strong></span>
+            <div class="input-element">{{app.birthdate}}</div>
+        </div>
+        <div class="form-element">
+            <span class="input-label"><strong>Phone Number</strong></span>
+            <div class="input-element">{{app.phone}}</div>
+        </div>
+        <br/>
+        <h2 class="light">Education & Experience</h2>
+        <div class="form-element">
+            <span class="input-label"><strong>University</strong></span>
+            <div class="input-element">{{app.university}}</div>
+        </div>
+        <div class="form-element">
+            <span class="input-label"><strong>Degree</strong></span>
+            <div class="input-element">{{app.degree}}</div>
+        </div>
+        <div class="form-element">
+            <span class="input-label"><strong>Previous Company</strong></span>
+            <div class="input-element">{{app.company}}</div>
+        </div>
+        <div class="form-element">
+            <span class="input-label"><strong>Previous Position</strong></span>
+            <div class="input-element">{{app.position}}</div>
+        </div>
+        <div class="form-element">
+            <span class="input-label"><strong>Skills</strong></span>
+            <div class="input-element">{{app.skills}}</div>
+        </div>
+        <span class="separator"></span>
+    </div>
+    <div ng-class="{ active: emptySelect }" class="view-apps-application">
+        No applications were found.
+    </div>
+</div>

@@ -1,0 +1,48 @@
+<div class="container ats create-job">
+    <span class="page-back" ui-sref="ats"><i class="fa fa-arrow-left"></i> Back to Dashboard</span>
+    <h3 class="light">Create a new job</h3>
+    <div ng-class="{ active: !appSubmitted }" class="create-job-action">
+        <div class="form-element">
+            <span class="input-label">Title</span>
+            <div class="input-element">
+                <input type="text" placeholder="e.g. Software Engineer" ng-model="job_title" required />
+            </div>
+        </div>
+        <div class="form-element">
+            <span class="input-label">Short summary</span>
+            <div class="input-element">
+                <textarea placeholder="e.g. Build interactive mobile apps with with Swift" ng-model="job_shortsummary" required></textarea>
+            </div>
+        </div>
+        <div class="form-element">
+            <span class="input-label">Description</span>
+            <div class="input-element">
+                <textarea placeholder="Full description of job" ng-model="job_description" required></textarea>
+            </div>
+        </div>
+        <div class="form-element">
+            <span class="input-label">Location</span>
+            <div class="input-element">
+                <input type="text" placeholder="e.g. Lowell, MA, United States" ng-model="job_location" required />
+            </div>
+        </div>
+        <div class="form-element">
+            <span class="input-label">Responsibilities</span>
+            <div class="input-element">
+                <textarea placeholder="What are the primary responsibilities for this job?" ng-model="job_responsibilities" required></textarea>
+            </div>
+        </div>
+        <div class="form-element">
+            <span class="input-label">Qualifications</span>
+            <div class="input-element">
+                <textarea placeholder="What qualifications are required for this job?" ng-model="job_qualifications" required></textarea>
+            </div>
+        </div>
+        <a class="button alt small" ng-click="createJob()" ng-class="{ active: !appSubmitted }">Create Job</a>
+    </div>
+    <div ng-class="{ active: appSubmitted }" class="create-job-success">
+        <div>The job was created successfully.</div>
+        <br/>
+        <a class="button alt small" ui-sref="ats">Go to Dashboard</a>
+    </div>
+</div>

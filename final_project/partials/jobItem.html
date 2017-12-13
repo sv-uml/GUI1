@@ -1,0 +1,31 @@
+<div class="container">
+    <span class="page-back" ui-sref="jobs"><i class="fa fa-arrow-left"></i> Back to All Jobs</span>
+    <div class="job-item">
+        <div class="job-content">
+            <div class="job-header">
+                <div class="job-header-info">
+                    <div class="job-title">{{job.title}}</div>
+                    <div class="job-location">{{job.location}}</div>
+                </div>
+                <div class="job-header-action">
+                    <span>Added</span>
+                    <span class="job-time" am-time-ago="{{job.datetime}} | amFromUnix"></span>
+                    <span class="job-apply"><a class="button alt small" ui-sref="apply({id: job.id})">Apply</a></span>
+                </div>
+            </div>
+            <span class="jobitem-header">About</span>
+            <div class="job-description">{{job.description}}</div>
+            <span class="jobitem-header">Responsibilities</span>
+            <div class="job-responsibilities">{{job.responsibilities}}</div>
+            <span class="jobitem-header">Qualifications</span>
+            <div class="job-qualifications">{{job.qualifications}}</div>
+            <span class="jobitem-header">Share</span>
+            <div>Share this job on social media</div>
+            <div class="jobitem-share">
+                <div class="fb-share-button" data-href="http://localhost/guifinal/#/job/{{job.id}}" data-layout="button" data-size="large" data-mobile-iframe="true"><a class="fb-xfbml-parse-ignore" target="_blank" href="https://www.facebook.com/sharer/sharer.php?u=http%3A%2F%2Flocalhost%2Fguifinal%2F%23%2Fjob%2F3&amp;src=sdkpreparse">Share</a></div>
+                <a class="twitter-share-button" href="http://localhost/guifinal/#/job/{{job.id}}" data-size="large">Tweet</a>
+                <script type="IN/Share" data-url="http://localhost/guifinal/#/job/{{job.id}}"></script>
+            </div>
+        </div>
+    </div>
+</div>
